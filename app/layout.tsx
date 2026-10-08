@@ -7,7 +7,6 @@ import JsonLd from "./components/JsonLd";
 import {
   defaultDescription,
   defaultTitle,
-  ogImage,
   organizationJsonLd,
   siteName,
   siteUrl,
@@ -41,13 +40,11 @@ export const metadata: Metadata = {
     title: defaultTitle,
     description: defaultDescription,
     url: "/",
-    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
-    images: [ogImage.url],
   },
   robots: { index: true, follow: true },
 };

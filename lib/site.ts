@@ -20,23 +20,19 @@ export const ogImage = {
 
 export const orgId = `${siteUrl}/#organization`;
 
-/** Metadata for a page: canonical URL, Open Graph and Twitter cards included. */
+/** Metadata for a page. Share images come from each route's opengraph-image / twitter-image file. */
 export function pageMeta({
   title,
   absoluteTitle,
   description,
   path,
-  image,
 }: {
   title: string;
   /** Use the title as-is, skipping the "| Klinflex Oil" template. */
   absoluteTitle?: boolean;
   description: string;
   path: string;
-  /** Share image path under /public; defaults to the home hero. */
-  image?: string;
 }): Metadata {
-  const img = image ? { url: image, alt: title } : ogImage;
   const full = absoluteTitle ? title : `${title} | ${siteName}`;
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -49,13 +45,11 @@ export function pageMeta({
       title: full,
       description,
       url: path,
-      images: [img],
     },
     twitter: {
       card: "summary_large_image",
       title: full,
       description,
-      images: [img.url],
     },
   };
 }
