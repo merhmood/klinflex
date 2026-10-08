@@ -61,6 +61,7 @@ export const organizationJsonLd = {
   name: siteName,
   url: siteUrl,
   description: defaultDescription,
+  logo: `${siteUrl}/logo.png`,
   image: `${siteUrl}${ogImage.url}`,
   telephone: "+2348097890745",
   email: company.email,

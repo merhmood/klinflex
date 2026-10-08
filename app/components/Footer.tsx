@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { company } from "@/lib/content";
+import Brand from "./Brand";
 
 const cols = [
   {
@@ -30,9 +31,9 @@ export default function Footer() {
     <footer className="border-t border-line py-16">
       <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-5 md:px-10 lg:grid-cols-[2fr_1fr_1fr_1.5fr]">
         <div>
-          <p className="text-2xl font-semibold tracking-tight">
-            Klinflex<span className="text-flare"> Oil</span>
-          </p>
+          <Link href="/" aria-label="Klinflex Oil home">
+            <Brand size="lg" />
+          </Link>
           <p className="mt-3 max-w-xs text-steel">
             Partnering for excellence in Nigeria&rsquo;s energy sector.
           </p>

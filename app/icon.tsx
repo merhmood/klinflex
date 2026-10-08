@@ -1,9 +1,13 @@
 import { ImageResponse } from "next/og";
+import { logoDataUrl, logoSize } from "@/lib/logo";
 
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-export default function Icon() {
+export default async function Icon() {
+  const logo = await logoDataUrl();
+  const h = Math.round(size.height * 0.8);
+  const w = Math.round((logoSize.width / logoSize.height) * h);
   return new ImageResponse(
     (
       <div
@@ -13,14 +17,12 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a1424",
-          color: "#e8590c",
-          fontSize: 46,
-          fontWeight: 800,
-          borderRadius: 14,
+          background: "#ffffff",
+          borderRadius: 12,
         }}
       >
-        K
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logo} width={w} height={h} alt="" />
       </div>
     ),
     size,

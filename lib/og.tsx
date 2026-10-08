@@ -2,6 +2,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { logoDataUrl, logoSize } from "./logo";
 
 const W = 1200;
 const H = 630;
@@ -24,6 +25,7 @@ export async function ogCard({
     bg = undefined;
   }
 
+  const logo = await logoDataUrl();
   const titleSize = title.length > 60 ? 54 : title.length > 36 ? 66 : 80;
 
   return new ImageResponse(
@@ -69,7 +71,22 @@ export async function ogCard({
             padding: "60px 72px 72px",
           }}
         >
-          <div style={{ display: "flex", fontSize: 42, fontWeight: 700, color: "#eceff3" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: 42,
+              fontWeight: 700,
+              color: "#eceff3",
+            }}
+          >
+            <img
+              src={logo}
+              width={Math.round((logoSize.width / logoSize.height) * 64)}
+              height={64}
+              alt=""
+              style={{ marginRight: 16 }}
+            />
             <span>Klinflex</span>
             <span style={{ color: "#e8590c", marginLeft: 12 }}>Oil</span>
           </div>

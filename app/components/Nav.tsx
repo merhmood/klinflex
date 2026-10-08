@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Brand from "./Brand";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -34,9 +35,9 @@ export default function Nav() {
           <Link
             href="/"
             onClick={close}
-            className="text-lg font-semibold tracking-tight"
+            aria-label="Klinflex Oil home"
           >
-            Klinflex<span className="text-flare"> Oil</span>
+            <Brand />
           </Link>
 
           {/* Desktop */}
